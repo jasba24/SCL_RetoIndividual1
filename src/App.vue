@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Menu></Menu>
+  <Menu v-bind="attrs"></Menu>
+  <Dashboard></Dashboard>
 </template>
 
-<script>
+<script setup>
+import Dashboard from "@/components/Dashboard";
 import Menu from "./components/Menu.vue";
+import logo from "./assets/logo.png";
+import { ref } from "vue";
 
-export default {
-  name: "App",
-  components: {
-    Menu,
-  },
-};
+const attrs = ref({
+  links: [
+    {
+      icon: logo,
+      name: "Panel",
+    },
+    {
+      icon: logo,
+      name: "Empresas",
+    },
+    {
+      icon: logo,
+      name: "Perfil",
+    },
+    {
+      icon: logo,
+      name: "Contacto",
+    },
+  ],
+});
 </script>
 
 <style lang="stylus">
@@ -19,7 +36,10 @@ export default {
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  text-align center
   color #2c3e50
-  margin-top 60px
+  display grid
+  grid-template-columns 300px 1fr
+  background-color blue
+body
+  margin 0
 </style>
