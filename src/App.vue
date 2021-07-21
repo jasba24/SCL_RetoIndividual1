@@ -1,34 +1,11 @@
 <template>
-  <Menu v-bind="attrs"></Menu>
+  <Menu></Menu>
   <Dashboard></Dashboard>
 </template>
 
 <script setup>
-import Dashboard from "@/components/Dashboard";
-import Menu from "./components/Menu.vue";
-import logo from "./assets/logo.png";
-import { ref } from "vue";
-
-const attrs = ref({
-  links: [
-    {
-      icon: logo,
-      name: "Panel",
-    },
-    {
-      icon: logo,
-      name: "Empresas",
-    },
-    {
-      icon: logo,
-      name: "Perfil",
-    },
-    {
-      icon: logo,
-      name: "Contacto",
-    },
-  ],
-});
+import Dashboard from "@/components/Dashboard/Dashboard";
+import Menu from "@/components/Menu/Menu";
 </script>
 
 <style lang="stylus">
@@ -37,9 +14,9 @@ const attrs = ref({
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   color #2c3e50
+  background-color #232730
   display grid
-  grid-template-columns 300px 1fr
-  background-color blue
+  grid-template-columns 250px 1fr
 body
   margin 0
 </style>
