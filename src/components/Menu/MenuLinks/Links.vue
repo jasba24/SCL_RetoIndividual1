@@ -7,10 +7,12 @@
   </nav>
 </template>
 
-<script>
-export default {
-  props: ["links"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps({
+  links: Array,
+});
 </script>
 
 <style lang="stylus" scoped>
@@ -20,14 +22,18 @@ export default {
   &-item
     list-style none
     display flex
+    margin-top 20px
     & button
       border none
       background-color inherit
-      color white
-      &:hover
-        color #569b51
-
+      color #CDCDCD
+      font-family: Montserrat;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+  &-item:nth-child(3) button
+    color #569B51
 img
-  width 50px
-  height 50px
+  width 36px
+  height 36px
 </style>

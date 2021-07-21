@@ -8,25 +8,28 @@
 <script setup>
 import Links from "@/components/Menu/MenuLinks/Links";
 import MenuHeader from "@/components/Menu/MenuHeader";
-import logo from "@/assets/logo.png";
+import Home from "@/assets/Home.svg";
+import Work from "@/assets/Work.svg";
+import Profile from "@/assets/Profile.svg";
+import InfoCircle from "@/assets/InfoCircle.svg";
 import { ref } from "vue";
 
 const attrs = ref({
   links: [
     {
-      icon: logo,
+      icon: Home,
       name: "Panel",
     },
     {
-      icon: logo,
+      icon: Work,
       name: "Empresas",
     },
     {
-      icon: logo,
+      icon: Profile,
       name: "Perfil",
     },
     {
-      icon: logo,
+      icon: InfoCircle,
       name: "Contacto",
     },
   ],
@@ -37,8 +40,8 @@ const attrs = ref({
 main
   display flex
   flex-direction column
-  padding-left 40px
-  padding-top 40px
+  padding-left 20px
+  padding-top 20px
   border-right 1px solid #39424e
   margin-right 50px
 </style>
