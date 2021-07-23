@@ -11,10 +11,11 @@ import Menu from "@/components/Menu/Menu";
 <style lang="stylus">
 primary-color = #232730
 #app
-  font-family Avenir, Helvetica, Arial, sans-serif
+  font-family Montserrat
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   background-color primary-color
+  color white
   display grid
   grid-template-columns 250px 1fr
 body

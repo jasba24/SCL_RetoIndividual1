@@ -27,10 +27,10 @@ defineProps({
       border none
       background-color inherit
       color #CDCDCD
-      font-family: Montserrat;
-      font-size: 25px;
-      font-style: normal;
-      font-weight: 400;
+      font-family Montserrat
+      font-size 25px
+      font-style normal
+      font-weight 400
   &-item:nth-child(3) button
     color #569B51
 img

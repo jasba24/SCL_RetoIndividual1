@@ -8,13 +8,17 @@
       <img class="profile__img" :src="profileImg" />
     </div>
   </section>
+  <ProfileDescription></ProfileDescription>
+  <ProfileStack></ProfileStack>
 </template>
 
 <script setup>
 import profileImg from "@/assets/profileImg.png";
 import profileBg from "@/assets/profileBg.png";
-import Modal from "@/components/Dashboard/DashboardModal/Modal";
 import edit from "@/assets/edit.svg";
+import Modal from "@/components/Dashboard/DashboardModal/Modal";
+import ProfileDescription from "@/components/Dashboard/DashboardProfile/ProfileDescription";
+import ProfileStack from "@/components/Dashboard/DashboardProfile/ProfileStack";
 import { computed } from "vue";
 import { useStore } from "vuex";
 
@@ -38,17 +42,19 @@ const toogleModal = () => {
 
 <style lang="stylus" scoped>
 .profile
-  position absolute
   width 78vw
 .bg__container
+  position relative
   width 100%
   height 170px
   background-image v-bind(bgURL)
+  background-size cover
   background-repeat no-repeat
 .profile__img
-  position absolute
-  left 40%
-  bottom -50px
+  position relative
+  object-fit cover
+  left 43%
+  bottom -90px
 .edit__icon
   width 20px
   height 20px

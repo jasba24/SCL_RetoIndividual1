@@ -1,8 +1,10 @@
 <template>
   <section class="modal__container">
+    <div @click="closeModal" class="modal__closeIcon">X</div>
     <h1 class="modal__title">Imagen de portada</h1>
     <form class="modal__form">
-      <input ref="url" type="text" placeholder="URL de imagen" />
+      <label>URL de imagen</label>
+      <input ref="url" type="text" />
       <button @click.prevent="toogleModal">Guardar</button>
     </form>
   </section>
@@ -16,6 +18,10 @@ const store = useStore();
 
 const url = ref(null);
 
+const closeModal = () => {
+  store.commit("toogleModal", false);
+};
+
 const toogleModal = () => {
   store.commit("setProfileBgUrl", url.value.value);
   store.commit("toogleModal");
@@ -26,6 +32,7 @@ const toogleModal = () => {
 primary-color = #232730
 secondary-color = #569b51
 .modal__container
+  position relative
   background-color primary-color
   color white
   width 500px
@@ -35,13 +42,13 @@ secondary-color = #569b51
   margin 16px 0 20px
   font-weight normal
 .modal__form
+  position relative
   & input
-    border-color internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133))
     border 1px solid #39424E
     border-width 2px
     border-radius 5px
     background-color primary-color
-    width 100%
+    width 98%
     height 50px
     font-size 16px
     &:focus
@@ -61,4 +68,15 @@ secondary-color = #569b51
     cursor pointer
   & label
     position absolute
+    background-color #232730
+    color #B5B5B5
+    top -10px
+    left 10px
+    padding 0 10px
+.modal__closeIcon
+  font-size 20px
+  position absolute
+  right 30px
+  top 20px
+  cursor pointer
 </style>

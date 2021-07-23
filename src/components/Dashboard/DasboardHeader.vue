@@ -1,11 +1,11 @@
 <template>
   <figure>
-    <img :src="logo" alt="" />
+    <img :src="Setting" alt="" />
   </figure>
 </template>
 
 <script setup>
-import logo from "@/assets/logo.png";
+import Setting from "@/assets/Setting.svg";
 </script>
 
 <style lang="stylus" scoped>

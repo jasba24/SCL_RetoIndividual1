@@ -1,7 +1,7 @@
 <template>
   <main>
     <DashboardHeader></DashboardHeader>
-    <Profile></Profile>
+    <div class="profile__container"><Profile></Profile></div>
     <JobSection></JobSection>
     <Skills></Skills>
   </main>
@@ -18,4 +18,7 @@ import Skills from "@/components/Dashboard/DashboardSkills.vue/Skills";
 main
   height 100vh
   margin-right 50px
+.profile__container
+  background-color #2E353F
+  border 1px solid #39424E
 </style>
