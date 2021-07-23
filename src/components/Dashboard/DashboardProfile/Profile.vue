@@ -15,7 +15,7 @@
 <script setup>
 import profileImg from "@/assets/profileImg.png";
 import profileBg from "@/assets/profileBg.png";
-import edit from "@/assets/edit.svg";
+
 import Modal from "@/components/Dashboard/DashboardModal/Modal";
 import ProfileDescription from "@/components/Dashboard/DashboardProfile/ProfileDescription";
 import ProfileStack from "@/components/Dashboard/DashboardProfile/ProfileStack";
@@ -27,8 +27,6 @@ const bgURL = computed(() => {
     ? `url(${store.state.profileBgUrl})`
     : `url(${profileBg})`;
 });
-
-const editURL = computed(() => `url(${edit})`);
 
 const store = useStore();
 
@@ -55,16 +53,6 @@ const toogleModal = () => {
   object-fit cover
   left 43%
   bottom -90px
-.edit__icon
-  width 20px
-  height 20px
-  position absolute
-  right 10px
-  top 10px
-  background-image v-bind(editURL)
-  background-size 20px
-  background-repeat no-repeat
-  cursor pointer
 .modal
   background-color rgba(0, 0, 0, 0.8)
   display flex

@@ -23,10 +23,6 @@
 import Location from "@/assets/Location.svg";
 import GitHub from "@/assets/GitHub.svg";
 import linkedin from "@/assets/linkedin.svg";
-import edit from "@/assets/edit.svg";
-import { computed } from "vue";
-
-const editURL = computed(() => `url(${edit})`);
 </script>
 
 <style lang="stylus" scoped>
@@ -60,14 +56,4 @@ const editURL = computed(() => `url(${edit})`);
   & hr
     width 50%
     margin-top 20px
-.edit__icon
-  width 20px
-  height 20px
-  position absolute
-  right 10px
-  top 10px
-  background-image v-bind(editURL)
-  background-size 20px
-  background-repeat no-repeat
-  cursor pointer
 </style>
