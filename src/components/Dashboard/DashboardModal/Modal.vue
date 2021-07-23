@@ -19,16 +19,16 @@ const store = useStore();
 const url = ref(null);
 
 const closeModal = () => {
-  store.commit("toogleModal", false);
+  store.commit("showModal", false);
 };
 
 const toogleModal = () => {
   store.commit("setProfileBgUrl", url.value.value);
-  store.commit("toogleModal");
+  store.commit("showModal");
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 primary-color = #232730
 secondary-color = #569b51
 .modal__container
@@ -36,11 +36,9 @@ secondary-color = #569b51
   background-color primary-color
   color white
   width 500px
-  height 200px
   padding 24px
 .modal__title
   margin 16px 0 20px
-  font-weight normal
 .modal__form
   position relative
   & input
@@ -51,6 +49,8 @@ secondary-color = #569b51
     width 98%
     height 50px
     font-size 16px
+    padding-left 10px
+    color white
     &:focus
       border-color secondary-color
       outline 0

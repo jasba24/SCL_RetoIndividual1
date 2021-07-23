@@ -16,7 +16,6 @@ import Skills from "@/components/Dashboard/DashboardSkills.vue/Skills";
 
 <style lang="stylus" scoped>
 main
-  height 100vh
   margin-right 50px
 .profile__container
   background-color #2E353F

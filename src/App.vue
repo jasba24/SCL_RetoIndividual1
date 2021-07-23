@@ -33,4 +33,15 @@ body
   background-size 20px
   background-repeat no-repeat
   cursor pointer
+.modal
+  background-color rgba(0, 0, 0, 0.8)
+  display flex
+  justify-content center
+  align-items center
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index 10
 </style>
