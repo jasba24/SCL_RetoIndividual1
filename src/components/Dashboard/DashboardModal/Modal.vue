@@ -119,9 +119,11 @@ label
   position absolute
   background-color #232730
   color #B5B5B5
-  padding 0 10px
+  padding 0 5px
   top -10px
   left 10px
+  &.focus
+    color: secondary-color
 .input__link, .input__img
   position relative
 .input__img

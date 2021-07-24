@@ -44,4 +44,10 @@ body
   bottom: 0;
   left: 0;
   z-index 10
+.modal__closeIcon
+  font-size 20px
+  position absolute
+  right 30px
+  top 20px
+  cursor pointer
 </style>

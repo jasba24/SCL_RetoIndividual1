@@ -16,6 +16,9 @@
     </div>
     <hr />
     <h2>FullStack Senior</h2>
+    <div class="modal">
+      <ModalUserInfo></ModalUserInfo>
+    </div>
   </section>
 </template>
 
@@ -23,6 +26,7 @@
 import Location from "@/assets/Location.svg";
 import GitHub from "@/assets/GitHub.svg";
 import linkedin from "@/assets/linkedin.svg";
+import ModalUserInfo from "@/components/Dashboard/DashboardModal/ModalUserInfo";
 </script>
 
 <style lang="stylus" scoped>
