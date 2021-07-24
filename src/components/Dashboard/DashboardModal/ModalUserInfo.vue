@@ -6,7 +6,7 @@
       <p>URL de la imagen que deseas utilizar como avatar</p>
       <div class="input__container">
         <label>Avatar</label>
-        <input type="text" />
+        <input v-model="avatar" type="text" />
       </div>
       <p>
         Al tener tus datos actualizados tienes más posibilidades de que las
@@ -15,7 +15,14 @@
       <div class="options__container">
         <div class="input__container" v-for="(o, i) in options" :key="i">
           <label>{{ o.name }}</label>
-          <select class="select__container">
+          <select
+            class="select__container"
+            :ref="
+              (el) => {
+                if (el) skillInputs[i] = el;
+              }
+            "
+          >
             <option v-for="(option, i) in o.options" :key="i" :value="option">
               {{ option }}
             </option>
@@ -23,11 +30,11 @@
         </div>
         <div class="input__container">
           <label>Pais</label>
-          <input type="text" />
+          <input v-model="country" type="text" />
         </div>
         <div class="input__container">
           <label>Ciudad</label>
-          <input type="text" />
+          <input v-model="city" type="text" />
         </div>
       </div>
       <p>
@@ -36,22 +43,29 @@
       </p>
       <div class="input__container">
         <label>Biografia</label>
-        <input type="text" />
+        <input v-model="biography" type="text" />
       </div>
       <p>URL de tus redes sociales:</p>
       <div class="socials__container">
         <div class="input__container" v-for="(s, i) in socials" :key="i">
           <label>{{ s.name }}</label>
           <img :src="s.icon" alt="" />
-          <input type="text" />
+          <input
+            :ref="
+              (el) => {
+                if (el) socialInputs[i] = el;
+              }
+            "
+            type="text"
+          />
         </div>
       </div>
       <p>URL de tu portfolio personal:</p>
       <div class="input__container">
         <label>https:</label>
-        <input type="text" />
+        <input v-model="url" type="text" />
       </div>
-      <button @click.prevent="">Guardar</button>
+      <button @click.prevent="getData">Guardar</button>
     </form>
   </section>
 </template>
@@ -62,6 +76,9 @@ import linkedin from "@/assets/linkedin.svg";
 import GitHub from "@/assets/GitHub.svg";
 import GitLab from "@/assets/GitLab.svg";
 import behance from "@/assets/behance.png";
+import { useStore } from "vuex";
+
+const store = useStore();
 
 const socials = ref([
   {
@@ -99,6 +116,37 @@ const options = ref([
     options: ["Junior", "Especialista", "Sabio"],
   },
 ]);
+
+const avatar = ref(null);
+const skillInputs = ref([]);
+const country = ref(null);
+const city = ref(null);
+const biography = ref(null);
+const socialInputs = ref([]);
+const url = ref(null);
+const socialMedia = ref([]);
+const skills = ref([]);
+
+const userData = ref({
+  avatar,
+  country,
+  city,
+  biography,
+  url,
+  socialMedia,
+  skills,
+});
+
+const getData = () => {
+  socialInputs.value.forEach(({ value }) => {
+    socialMedia.value.push(value);
+  });
+  skillInputs.value.forEach(({ value }) => {
+    skills.value.push(value);
+  });
+  store.commit("setUserInfo", userData.value);
+  console.log(store.state.userInfo);
+};
 </script>
 
 <style lang="stylus" scoped>

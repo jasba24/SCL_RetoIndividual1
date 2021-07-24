@@ -4,6 +4,7 @@ export default createStore({
   state: {
     showModal: false,
     profileBgUrl: "",
+    userInfo: {},
   },
   mutations: {
     showModal(state, value) {
@@ -11,6 +12,9 @@ export default createStore({
     },
     setProfileBgUrl(state, value) {
       state.profileBgUrl = value;
+    },
+    setUserInfo(state, value) {
+      state.userInfo = value;
     },
   },
   actions: {},
