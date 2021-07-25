@@ -1,6 +1,6 @@
 <template>
   <section class="modal__container">
-    <div class="modal__closeIcon">X</div>
+    <div @click="closeModal" class="modal__closeIcon">X</div>
     <h1 class="modal__title">Datos Personal</h1>
     <form class="modal__form">
       <p>URL de la imagen que deseas utilizar como avatar</p>
@@ -45,7 +45,7 @@
         <label>Biografia</label>
         <input v-model="biography" type="text" />
       </div>
-      <p>URL de tus redes sociales:</p>
+      <p>URL de tus redes sociales (Solo ingresa tu nombre de usuario):</p>
       <div class="socials__container">
         <div class="input__container" v-for="(s, i) in socials" :key="i">
           <label>{{ s.name }}</label>
@@ -79,6 +79,10 @@ import behance from "@/assets/behance.png";
 import { useStore } from "vuex";
 
 const store = useStore();
+
+const closeModal = () => {
+  store.commit("showModalUser", false);
+};
 
 const socials = ref([
   {
@@ -144,8 +148,9 @@ const getData = () => {
   skillInputs.value.forEach(({ value }) => {
     skills.value.push(value);
   });
+  console.log(socialMedia);
   store.commit("setUserInfo", userData.value);
-  console.log(store.state.userInfo);
+  store.commit("showModalUser", false);
 };
 </script>
 
@@ -192,7 +197,8 @@ const getData = () => {
   grid-template-columns 1fr 1fr
   gap 30px 10px
   & input
-    width calc(100% - 16px)
+    width calc(100% - 66px)
+    padding-left 50px
   & img
     height 30px
     position absolute
