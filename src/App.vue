@@ -20,7 +20,7 @@ primary-color = #232730
   background-color primary-color
   color white
   display grid
-  grid-template-columns 250px 1fr
+  grid-template-columns 250px minmax(70vw, 1fr)
 body
   margin 0
 .edit__icon
@@ -50,4 +50,7 @@ body
   right 30px
   top 20px
   cursor pointer
+@media (max-width: 768px)
+  #app
+    display flex
 </style>

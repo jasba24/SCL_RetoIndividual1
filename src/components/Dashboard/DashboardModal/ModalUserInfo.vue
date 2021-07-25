@@ -156,7 +156,8 @@ const getData = () => {
 
 <style lang="stylus" scoped>
 .modal__container
-  height 90vh
+  height 80vh
+  margin-top 20px
   overflow-y scroll
   display grid
   gap 30px

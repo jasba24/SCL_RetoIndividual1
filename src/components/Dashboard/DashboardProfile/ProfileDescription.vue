@@ -119,6 +119,7 @@ const social = computed(() => {
 <style lang="stylus" scoped>
 .description__container
   display flex
+  width 100%
   flex-direction column
   justify-content center
   align-items center
@@ -130,7 +131,7 @@ const social = computed(() => {
     font-weight normal
     margin 0
   & p
-    width 700px
+    width 70%
     text-align center
     font-weight 300
   & img

@@ -38,8 +38,6 @@ const toogleModal = () => {
 </script>
 
 <style lang="stylus" scoped>
-.profile
-  width 78vw
 .bg__container
   position relative
   width 100%
@@ -49,7 +47,12 @@ const toogleModal = () => {
   background-repeat no-repeat
 .profile__img
   position relative
-  object-fit cover
   left 43%
   bottom -90px
+@media (max-width 600px)
+  .profile__img
+    left 35%
+@media (max-width 425px)
+  .profile__img
+    left 30%
 </style>

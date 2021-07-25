@@ -4,6 +4,7 @@ export default createStore({
   state: {
     showModal: false,
     showModalUser: false,
+    showHeader: false,
     profileBgUrl: "",
     userInfo: {},
   },
@@ -13,6 +14,9 @@ export default createStore({
     },
     showModalUser(state, value) {
       state.showModalUser = value;
+    },
+    showHeader(state, value) {
+      state.showHeader = value;
     },
     setProfileBgUrl(state, value) {
       state.profileBgUrl = value;

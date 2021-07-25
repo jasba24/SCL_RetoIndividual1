@@ -64,7 +64,7 @@ const stackList = ref([
   display grid
   justify-content center
   align-items center
-  grid-template-columns: repeat(6, 100px);
+  grid-template-columns: repeat(auto-fill, 100px);
   gap 5px
   padding 26px 100px
   & div
