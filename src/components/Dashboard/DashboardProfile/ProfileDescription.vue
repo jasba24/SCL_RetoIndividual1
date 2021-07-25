@@ -2,10 +2,10 @@
   <section class="description__container">
     <div @click="showModal" class="edit__icon"></div>
     <h1>JohnD</h1>
-    <p>{{ userData.biography }}</p>
+    <p>{{ biography }}</p>
     <div class="location__container">
       <img :src="Location" alt="location icon" />
-      <span>{{ userData.location }}</span>
+      <span>{{ location }}</span>
       <a
         v-for="(s, i) in social"
         :key="i"
@@ -43,18 +43,19 @@ const showModal = () => {
   store.commit("showModalUser", true);
 };
 
-const country = ref(store.state.userInfo.country ?? `España`);
-const city = ref(store.state.userInfo.city ?? `Palafolis`);
-
-const userData = ref({
-  biography:
+const location = computed(() => {
+  const country = ref(store.state.userInfo.country ?? `España`);
+  const city = ref(store.state.userInfo.city ?? `Palafolis`);
+  return `${city.value}, ${country.value}`;
+});
+const biography = computed(
+  () =>
     store.state.biography ??
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan
       urna nec ipsum tempus, vitae consequat velit rhoncus. Nunc quis dolor
       urna. Curabitur in orci congue, pellentesque massa ullamcorper, volutpat
-      odio. Proin eget nulla odio.`,
-  location: `${city.value}, ${country.value}`,
-});
+      odio. Proin eget nulla odio.`
+);
 
 const jobTitle = computed(() => {
   let specialty = "";
