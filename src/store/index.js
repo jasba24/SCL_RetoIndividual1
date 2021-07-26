@@ -6,6 +6,7 @@ export default createStore({
     showModalUser: false,
     showHeader: false,
     profileBgUrl: "",
+    profileIMg: "",
     userInfo: {},
   },
   mutations: {
@@ -20,6 +21,9 @@ export default createStore({
     },
     setProfileBgUrl(state, value) {
       state.profileBgUrl = value;
+    },
+    setProfileImg(state, value) {
+      state.profileImg = value;
     },
     setUserInfo(state, value) {
       state.userInfo = value;

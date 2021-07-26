@@ -5,7 +5,7 @@
     </div>
     <div class="bg__container">
       <div @click="toogleModal" class="edit__icon"></div>
-      <img class="profile__img" :src="profileImg" />
+      <img class="profile__img" :src="profileURL" />
     </div>
   </section>
   <ProfileDescription></ProfileDescription>
@@ -22,19 +22,21 @@ import ProfileStack from "@/components/Dashboard/DashboardProfile/ProfileStack";
 import { computed } from "vue";
 import { useStore } from "vuex";
 
+const store = useStore();
+
 const bgURL = computed(() => {
   return store.state.profileBgUrl
     ? `url(${store.state.profileBgUrl})`
     : `url(${profileBg})`;
 });
 
-const store = useStore();
-
 const showModal = computed(() => store.state.showModal);
 
 const toogleModal = () => {
   store.commit("showModal", true);
 };
+
+const profileURL = computed(() => store.state.profileImg ?? profileImg);
 </script>
 
 <style lang="stylus" scoped>
@@ -46,6 +48,11 @@ const toogleModal = () => {
   background-size cover
   background-repeat no-repeat
 .profile__img
+  width 150px
+  height 150px
+  object-fit cover
+  border-radius 50%
+  border 2px solid #39424E
   position relative
   left 43%
   bottom -90px

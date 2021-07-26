@@ -148,9 +148,10 @@ const getData = () => {
   skillInputs.value.forEach(({ value }) => {
     skills.value.push(value);
   });
-  console.log(socialMedia);
+
   store.commit("setUserInfo", userData.value);
   store.commit("showModalUser", false);
+  store.commit("setProfileImg", userData.value.avatar);
 };
 </script>
 

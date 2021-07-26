@@ -7,7 +7,6 @@
         <label>URL de imagen</label>
         <input ref="url" type="text" />
       </div>
-      <button @click.prevent="toogleModal">Guardar</button>
       <div class="form__options">
         <div></div>
         <p>o</p>
@@ -25,6 +24,7 @@
             accept=".svg,.png,.jpg.jpeg,.gif"
         /></label>
       </div>
+      <button @click.prevent="toogleModal">Guardar</button>
     </form>
   </section>
 </template>
@@ -45,13 +45,10 @@ let chooseName = ref("Escoge una imagen");
 
 const getFileUrl = () => {
   const objectURL = URL.createObjectURL(file.value.files[0]);
-
-  console.log(file.value.files.length === 0);
-
   chooseName.value =
     file.value.files.length === 0 ? "Escoge una imagen" : "Imagen Escogida";
 
-  return objectURL ? (fileUrl = objectURL) : (fileUrl = url.value.value);
+  return (fileUrl.value = objectURL);
 };
 
 const closeModal = () => {
@@ -59,6 +56,8 @@ const closeModal = () => {
 };
 
 const toogleModal = () => {
+  fileUrl.value ? fileUrl.value : (fileUrl.value = url.value.value);
+
   store.commit("setProfileBgUrl", fileUrl);
   store.commit("showModal");
 };

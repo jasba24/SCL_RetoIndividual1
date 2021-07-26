@@ -50,7 +50,7 @@ const location = computed(() => {
 });
 const biography = computed(
   () =>
-    store.state.biography ??
+    store.state.userInfo.biography ??
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan
       urna nec ipsum tempus, vitae consequat velit rhoncus. Nunc quis dolor
       urna. Curabitur in orci congue, pellentesque massa ullamcorper, volutpat
