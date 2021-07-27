@@ -17,6 +17,7 @@
 
 <script setup>
 import { ref } from "vue";
+// import { useStore } from "vuex";
 
 const stackList = ref([
   {
@@ -44,6 +45,14 @@ const stackList = ref([
     url: "https://www.rust-lang.org/",
   },
 ]);
+
+// const store = useStore();
+
+// const showNFT = computed(() => store.state.showNFT);
+
+// const bg = computed(() => {
+//   return !showNFT.value ? "1px solid #39424E" : "none";
+// });
 </script>
 
 <style lang="stylus" scoped>
@@ -64,7 +73,7 @@ const stackList = ref([
   display grid
   justify-content center
   align-items center
-  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-columns: repeat(auto-fill, 160px);
   gap 5px
   padding 26px 100px
   & div

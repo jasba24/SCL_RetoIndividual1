@@ -126,7 +126,7 @@ const social = computed(() => {
   align-items center
   position relative
   & h1
-    margin-top 90px
+    margin-top 60px
     margin-bottom 0
   & h3
     font-weight normal

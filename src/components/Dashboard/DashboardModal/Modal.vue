@@ -24,7 +24,7 @@
             accept=".svg,.png,.jpg.jpeg,.gif"
         /></label>
       </div>
-      <button @click.prevent="toogleModal">Guardar</button>
+      <button @click.prevent="toggleModal">Guardar</button>
     </form>
   </section>
 </template>
@@ -55,7 +55,7 @@ const closeModal = () => {
   store.commit("showModal", false);
 };
 
-const toogleModal = () => {
+const toggleModal = () => {
   fileUrl.value ? fileUrl.value : (fileUrl.value = url.value.value);
 
   store.commit("setProfileBgUrl", fileUrl);
