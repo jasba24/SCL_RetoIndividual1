@@ -1,5 +1,5 @@
 <template>
-  <section class="profile">
+  <section class="profile" v-show="false">
     <div v-show="showModal" class="modal">
       <Modal></Modal>
     </div>
@@ -8,8 +8,10 @@
       <img class="profile__img" :src="profileURL" />
     </div>
   </section>
-  <ProfileDescription></ProfileDescription>
-  <ProfileStack></ProfileStack>
+  <button class="btn__nft">Ver nuwe NFT</button>
+  <ProfileDescription v-show="false"></ProfileDescription>
+  <ProfileStack v-show="false"></ProfileStack>
+  <NFT v-show="true"></NFT>
 </template>
 
 <script setup>
@@ -19,6 +21,7 @@ import profileBg from "@/assets/profileBg.png";
 import Modal from "@/components/Dashboard/DashboardModal/Modal";
 import ProfileDescription from "@/components/Dashboard/DashboardProfile/ProfileDescription";
 import ProfileStack from "@/components/Dashboard/DashboardProfile/ProfileStack";
+import NFT from "@/components/Dashboard/DashboardNFT/NFT";
 import { computed } from "vue";
 import { useStore } from "vuex";
 
@@ -56,6 +59,15 @@ const profileURL = computed(() => store.state.profileImg ?? profileImg);
   position relative
   left 43%
   bottom -90px
+.btn__nft
+  background transparent
+  border 1px solid #689F63
+  color #689F63
+  padding 10px 30px
+  margin-top 20px
+  margin-left 30px
+  cursor pointer
+  text-transform uppercase
 @media (max-width 600px)
   .profile__img
     left 35%
