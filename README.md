@@ -30,3 +30,7 @@ Usado para manejar el estado para compartir datos entre los componentes.
 ## Deploy 🚀
 https://reto-individual1.netlify.app/
 
+
+# Reto Individual 2
+
+He agregado un boton a la seccion del profile para mostrar el NFT y al dar click en la card principal se muestra el codigo QR creado con la api https://goqr.me/api/ que devuelve un codigo QR enviando la configuracion del codigo QR en la url de la api y poniendo esta url en la imagen donde que se quiere mostrar.
