@@ -4,10 +4,11 @@
       <Modal></Modal>
     </div>
     <div class="bg__container">
-      <div @click="toogleModal" class="edit__icon"></div>
+      <div @click="toggleModal" class="edit__icon"></div>
       <img class="profile__img" :src="profileURL" />
     </div>
   </section>
+  <slot></slot>
   <ProfileDescription></ProfileDescription>
   <ProfileStack></ProfileStack>
 </template>
@@ -32,7 +33,7 @@ const bgURL = computed(() => {
 
 const showModal = computed(() => store.state.showModal);
 
-const toogleModal = () => {
+const toggleModal = () => {
   store.commit("showModal", true);
 };
 

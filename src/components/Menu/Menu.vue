@@ -45,6 +45,7 @@ const showHeader = computed(() => store.state.showHeader);
 main
   display flex
   width 180px
+  min-height 100vh
   flex-direction column
   padding-left 20px
   padding-top 20px
