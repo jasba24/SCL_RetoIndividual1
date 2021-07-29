@@ -25,7 +25,6 @@
     "eslint-plugin-vue": "^7.0.0",
     "prettier": "^2.2.1",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue-qr-code": "^1.0.1"
+    "stylus-loader": "^3.0.2"
   }
 }
