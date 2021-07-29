@@ -6,6 +6,7 @@ export default createStore({
     showModalUser: false,
     showHeader: false,
     showNFT: false,
+    showQr: false,
     profileBgUrl: "",
     profileIMg: "",
     userInfo: {},
@@ -22,6 +23,9 @@ export default createStore({
     },
     showNFT(state, value) {
       state.showNFT = value;
+    },
+    mutateQr(state, value) {
+      state.showQr = value;
     },
     setProfileBgUrl(state, value) {
       state.profileBgUrl = value;

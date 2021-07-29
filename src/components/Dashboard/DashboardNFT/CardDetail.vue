@@ -1,5 +1,5 @@
 <template>
-  <section class="card__details">
+  <section @click="showQrMutation" class="card__details">
     <div class="logo__container">
       <img :src="card" alt="" />
       <div class="logo__content">
@@ -8,15 +8,15 @@
         <p>Abierto a oportunidades</p>
       </div>
     </div>
-    <div class="card__info">
+    <div class="card__info" v-show="!showQr">
       <h1>
         <strong>1º</strong> <small>España, rango Creator ||</small> <br />
         <strong>157</strong> <small>General Europa</small>
       </h1>
       <img class="chart" :src="chart" alt="" srcset="" />
     </div>
-    <div id="decoration"></div>
-    <div class="card__score">
+    <div v-show="!showQr" id="decoration"></div>
+    <div v-show="!showQr" class="card__score">
       <div class="score__details">
         <h1>Participación de @edgar.gago</h1>
         <ul>
@@ -30,13 +30,25 @@
         <p><img :src="logo45" alt="" srcset="" /></p>
       </div>
     </div>
+    <div class="qrCode__container" v-show="showQr">
+      <Suspense>
+        <QrCode />
+        <template #fallback>
+          <h1>Loading...</h1>
+        </template>
+      </Suspense>
+    </div>
   </section>
 </template>
 
 <script setup>
 import card from "@/assets/card.png";
 import chart from "@/assets/chart.png";
-import { ref, defineProps } from "vue";
+import { ref, defineProps, computed } from "vue";
+import { useStore } from "vuex";
+import QrCode from "@/components/Dashboard/DashboardNFT/CardQr";
+
+const store = useStore();
 
 defineProps({
   logo45: String,
@@ -60,12 +72,20 @@ const details = ref([
     score: 78,
   },
 ]);
+
+const showQr = computed(() => store.state.showQr);
+
+const showQrMutation = () => {
+  store.commit("mutateQr", !store.state.showQr);
+};
 </script>
 
 <style lang="stylus" scoped>
 .card__details
   display grid
   width 350px
+  position relative
+  cursor pointer
   background-color #232730
   border 10px solid #6AB972
   box-shadow 0px 0px 250px 0px #93B990
@@ -122,4 +142,8 @@ const details = ref([
   margin 0 auto
   margin-top 20px
   width 95%
+.qrCode__container
+  display flex
+  justify-content center
+  align-items center
 </style>
